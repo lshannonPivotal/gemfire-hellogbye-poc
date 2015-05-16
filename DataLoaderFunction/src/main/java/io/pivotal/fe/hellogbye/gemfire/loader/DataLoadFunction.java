@@ -38,7 +38,7 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 		Cache cache = CacheFactory.getAnyInstance();
 		this.logger = cache.getLogger();
 		this.member = cache.getDistributedSystem().getDistributedMember();
-		backUpDirectory = "/Users/lshannon/Documents/git/gemfire-hellogbye-poc/DataLoaderFunction/src/test/resources/data/";
+		backUpDirectory = "/home/ubuntu/cluster/gemfire-ubuntu-package/data/";
 	}
 
 	@Override
