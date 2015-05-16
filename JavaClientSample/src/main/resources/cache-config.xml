@@ -21,8 +21,8 @@
 	<gfe:client-region id="segments"/>
 		
 	<gfe:pool id="gemfirePool">
-		<gfe:locator host="52.6.87.71" port="10334" />
-		<gfe:locator host="52.4.6.51" port="10334" />
+		<gfe:locator host="ec2-52-7-9-136.compute-1.amazonaws.com" port="10334" />
+		<gfe:locator host="ec2-52-7-17-211.compute-1.amazonaws.com" port="10334" />
 	</gfe:pool>
 
 </beans>

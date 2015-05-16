@@ -47,6 +47,16 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>io.pivotal.fe.hellogbye.gemfire.model</groupId>
+			<artifactId>HelloGByeModel</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>io.pivotal.fe.hellogbye.gemfire.loader</groupId>
+			<artifactId>DataLoaderFunction</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	
 	<build>

@@ -18,6 +18,7 @@ export LOCATOR_1_IP=172.31.39.160
 export LOCATOR_2_IP=172.31.39.161
 export PATH=$PATH:$JAVA_HOME/bin:$GEMFIRE/bin
 export CLASSPATH=$CLASSPATH:$GEMFIRE/lib/*:$JAVA_HOME/lib/tools.jar:$CONF_DIR/:$CONF_DIR/*:$LIB_DIR/:$LIB_DIR/*
+export HOSTNAME=$(hostname)
 export LOCATOR_NAME="$(hostname)-locator"
 export SERVER_NAME="$(hostname)-server"
 

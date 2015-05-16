@@ -6,6 +6,7 @@ echo "2: scripts"
 echo "3: conf"
 echo "4: lib"
 echo "5: data"
+echo "6: Client App"
 read option
 if [[ ("$option" -eq "1") ]]; then
 	echo "Uploading the Gemfire package to all servers"
@@ -61,4 +62,10 @@ if [[ ("$option" -eq "5") ]]; then
 	scp -r -i gemfire.pem gemfire-ubuntu-package/data ubuntu@$SERVER_1:/home/ubuntu/cluster/gemfire-ubuntu-package
 	echo "Uploading to Server 2"
 	scp -r -i gemfire.pem gemfire-ubuntu-package/data ubuntu@$SERVER_2:/home/ubuntu/cluster/gemfire-ubuntu-package
+fi
+if [[ ("$option" -eq "6") ]]; then
+	echo "Uploading Client App"
+	echo "Uploading to Locator 2"
+	scp -r -i gemfire.pem gemfire-ubuntu-package/client ubuntu@$LOCATOR_SERVER_2:/home/ubuntu/cluster/gemfire-ubuntu-package
+	ssh -i gemfire.pem ubuntu@$LOCATOR_SERVER_2 nohup java -jar /home/ubuntu/cluster/gemfire-ubuntu-package/client/JavaClientSample-0.0.1-SNAPSHOT.jar
 fi

@@ -43,6 +43,7 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 
 	@Override
 	public void execute(FunctionContext context) {
+		System.out.println("Got the context: " + context);
 		RegionFunctionContext rfc = (RegionFunctionContext) context;
 		String loadingSummary = null;
 		try {
@@ -64,14 +65,14 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 	 */
 	@SuppressWarnings("unchecked")
 	private String loadSegments(@SuppressWarnings("rawtypes") Region region) {
-		this.logger.info("Started loading segments");
+		System.out.println("Started loading segments from: " + backUpDirectory);
 		// summary of the loading process
 		long startTime = 0, endTime = 0;
 		int totalSegments = 0, loadedSegments = 0, skippedSegments = 0;
 		startTime = System.currentTimeMillis();
 		BufferedReader br = null;
 		File segments = new File(backUpDirectory);
-		this.logger.info("Loading From: " + backUpDirectory + " " + segments.list().length + " file to process");
+		System.out.println("Loading From: " + backUpDirectory + " " + segments.list().length + " file to process");
 		String[] files = segments.list();
 		Gson gson = new Gson();
 		for (int i = 0; i < files.length; i++) {
