@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:gfe="http://www.springframework.org/schema/gemfire"
+	xmlns:gfe-data="http://www.springframework.org/schema/data/gemfire"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/gemfire http://www.springframework.org/schema/data/gemfire/spring-data-gemfire.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/gemfire http://www.springframework.org/schema/gemfire/spring-gemfire.xsd">
+
+	<bean id="pdxSerializer" class="com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer">
+		<constructor-arg value="io.pivotal.fe.hellogbye.gemfire.model.*" />
+	</bean>
+
+	<gfe:client-cache  pool-name="gemfirePool" pdx-serializer-ref="pdxSerializer"/>
+
+
+	<gfe:client-region id="segments"/>
+		
+	<gfe:pool id="gemfirePool">
+		<gfe:locator host="52.6.87.71" port="10334" />
+		<gfe:locator host="52.4.6.51" port="10334" />
+	</gfe:pool>
+
+</beans>
