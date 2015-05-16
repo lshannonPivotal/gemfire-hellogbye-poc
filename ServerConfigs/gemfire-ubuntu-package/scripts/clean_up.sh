@@ -8,4 +8,3 @@ if [ -d "$SERVER_DIR_LOCATION/$LOCATOR_NAME" ]; then
 	rm -fr $SERVER_DIR_LOCATION/$LOCATOR_NAME
 	echo "$SERVER_DIR_LOCATION/$LOCATOR_NAME deleted"
 fi
-pkill -f java
