@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:gfe="http://www.springframework.org/schema/gemfire"
+	xmlns:gfe-data="http://www.springframework.org/schema/data/gemfire"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/gemfire http://www.springframework.org/schema/gemfire/spring-gemfire.xsd
+        http://www.springframework.org/schema/data/gemfire http://www.springframework.org/schema/data/gemfire/spring-data-gemfire.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<util:properties id="peerCacheConfigurationSettings">
+		<prop key="name">springGemFirePeerCache</prop>
+		<prop key="locators">localhost[11235]</prop>
+		<prop key="log-level">config</prop>
+		<prop key="mcast-port">0</prop>
+		<prop key="start-locator">localhost[11235]</prop>
+	</util:properties>
+
+	<bean id="pdxSerializer" class="com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer">
+		<constructor-arg value="io.pivotal.fe.hellogbye.gemfire.model.*" />
+	</bean>
+
+	<gfe:cache properties-ref="peerCacheConfigurationSettings" pdx-serializer-ref="pdxSerializer" eviction-heap-percentage="60" critical-heap-percentage="80"/>
+
+	<gfe:cache-server auto-startup="true"/>
+
+	<gfe:partitioned-region id="segments" name="segments" persistent="false" />
+
+	<gfe:function-service>
+		<gfe:function>
+			<bean class="io.pivotal.fe.hellogbye.gemfire.loader.DataLoadFunction" />
+		</gfe:function> 
+	</gfe:function-service>
+		
+</beans>

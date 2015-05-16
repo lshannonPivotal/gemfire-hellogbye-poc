@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE cache PUBLIC "-//GemStone Systems, Inc.//GemFire Declarative  Cache 6.5//EN" "http://www.gemstone.com/dtd/cache6_5.dtd">
+ <cache lock-lease="120" lock-timeout="60" search-timeout="600" is-server="false" copy-on-read="false">
+   <cache-transaction-manager/>
+   <disk-store name="diskStore6" auto-compact="true" allow-force-compaction="false" compaction-threshold="50" max-oplog-size="1" time-interval="1000" write-buffer-size="32768" queue-size="0">
+     <disk-dirs>
+       <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+     </disk-dirs>
+   </disk-store>
+   <disk-store name="diskStore7" auto-compact="true" allow-force-compaction="false" compaction-threshold="50" max-oplog-size="1" time-interval="1000" write-buffer-size="32768" queue-size="0">
+     <disk-dirs>
+       <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+     </disk-dirs>
+   </disk-store>
+   <disk-store name="diskStore1" auto-compact="true" allow-force-compaction="false" compaction-threshold="50" max-oplog-size="1" time-interval="1000" write-buffer-size="32768" queue-size="0">
+     <disk-dirs>
+       <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+     </disk-dirs>
+   </disk-store>
+   <disk-store name="diskStore4" auto-compact="true" allow-force-compaction="false" compaction-threshold="50" max-oplog-size="1" time-interval="1000" write-buffer-size="32768" queue-size="0">
+     <disk-dirs>
+       <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+     </disk-dirs>
+   </disk-store>
+   <disk-store name="diskStore5" auto-compact="true" allow-force-compaction="false" compaction-threshold="50" max-oplog-size="1" time-interval="1000" write-buffer-size="32768" queue-size="0">
+     <disk-dirs>
+       <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+     </disk-dirs>
+   </disk-store>
+   <disk-store name="diskStore3" auto-compact="true" allow-force-compaction="false" compaction-threshold="50" max-oplog-size="1" time-interval="1000" write-buffer-size="32768" queue-size="0">
+     <disk-dirs>
+       <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+     </disk-dirs>
+   </disk-store>
+   <disk-store name="diskStore2" auto-compact="true" allow-force-compaction="false" compaction-threshold="50" max-oplog-size="1" time-interval="1000" write-buffer-size="32768" queue-size="0">
+     <disk-dirs>
+       <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+     </disk-dirs>
+   </disk-store>
+   <disk-store name="sharedDiskStore" auto-compact="true" allow-force-compaction="false" compaction-threshold="50" max-oplog-size="1" time-interval="1000" write-buffer-size="32768" queue-size="0">
+     <disk-dirs>
+       <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+       <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+     </disk-dirs>
+   </disk-store>
+   <region name="Region_1">
+     <region-attributes scope="global" early-ack="false" multicast-enabled="false" publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="persistent-replicate" initial-capacity="16" load-factor="0.75"
+ concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="diskStore1" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <subscription-attributes interest-policy="cache-content"/>
+     </region-attributes>
+   </region>
+   <region name="Region_10">
+     <region-attributes scope="global" early-ack="false" multicast-enabled="false" publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="persistent-replicate" initial-capacity="16" load-factor="0.75"
+ concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="sharedDiskStore" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_11">
+     <region-attributes scope="global" early-ack="false" multicast-enabled="false" publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="replicate" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="sharedDiskStore" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_12">
+     <region-attributes early-ack="false" multicast-enabled="false"
+ publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="partition" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="sharedDiskStore" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <partition-attributes redundant-copies="0" local-max-memory="216"
+ total-max-memory="2147483647" total-num-buckets="113" recovery-delay="-1"
+ startup-recovery-delay="0"/>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_13">
+     <region-attributes early-ack="false" multicast-enabled="false"
+ publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="partition" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="sharedDiskStore" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <partition-attributes redundant-copies="1" local-max-memory="216"
+ total-max-memory="2147483647" total-num-buckets="113" recovery-delay="-1"
+ startup-recovery-delay="0"/>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_14">
+     <region-attributes early-ack="false" multicast-enabled="false"
+ publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="partition" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="sharedDiskStore" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <partition-attributes redundant-copies="2" local-max-memory="216"
+ total-max-memory="2147483647" total-num-buckets="113" recovery-delay="-1"
+ startup-recovery-delay="0"/>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_15">
+     <region-attributes early-ack="false" multicast-enabled="false"
+ publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="partition" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="sharedDiskStore" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <partition-attributes redundant-copies="3" local-max-memory="216"
+ total-max-memory="2147483647" total-num-buckets="113" recovery-delay="-1"
+ startup-recovery-delay="0"/>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_2">
+     <region-attributes scope="global" early-ack="false" multicast-enabled="false" publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="replicate" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-write-attributes>
+         <asynchronous-writes time-interval="1000" bytes-threshold="0"/>
+       </disk-write-attributes>
+       <disk-dirs>
+         <disk-dir>.</disk-dir>
+       </disk-dirs>
+       <subscription-attributes interest-policy="cache-content"/>
+     </region-attributes>
+   </region>
+   <region name="Region_3">
+     <region-attributes scope="global" early-ack="false" multicast-enabled="false" publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="persistent-replicate" initial-capacity="16" load-factor="0.75"
+ concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="diskStore2" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_4">
+     <region-attributes scope="global" early-ack="false" multicast-enabled="false" publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="replicate" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="diskStore3" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_5">
+     <region-attributes early-ack="false" multicast-enabled="false"
+ publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="partition" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name=""
+ disk-store-name="diskStore4" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <partition-attributes redundant-copies="0" local-max-memory="216"
+ total-max-memory="2147483647" total-num-buckets="113" recovery-delay="-1"
+ startup-recovery-delay="0"/>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_6">
+     <region-attributes early-ack="false" multicast-enabled="false"
+ publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="partition" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name=""
+ disk-store-name="diskStore5" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <partition-attributes redundant-copies="1" local-max-memory="216"
+ total-max-memory="2147483647" total-num-buckets="113" recovery-delay="-1"
+ startup-recovery-delay="0"/>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_7">
+     <region-attributes early-ack="false" multicast-enabled="false"
+ publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="partition" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name=""
+ disk-store-name="diskStore6" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <partition-attributes redundant-copies="2" local-max-memory="216"
+ total-max-memory="2147483647" total-num-buckets="113" recovery-delay="-1"
+ startup-recovery-delay="0"/>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_8">
+     <region-attributes early-ack="false" multicast-enabled="false"
+ publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy="partition" initial-capacity="16" load-factor="0.75" concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name=""
+ disk-store-name="diskStore7" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <partition-attributes redundant-copies="3" local-max-memory="216"
+ total-max-memory="2147483647" total-num-buckets="113" recovery-delay="-1"
+ startup-recovery-delay="0"/>
+       <subscription-attributes interest-policy="cache-content"/>
+       <eviction-attributes>
+         <lru-entry-count action="overflow-to-disk" maximum="30"/>
+       </eviction-attributes>
+     </region-attributes>
+   </region>
+   <region name="Region_9">
+     <region-attributes scope="global" early-ack="false" multicast-enabled="false" publisher="false" enable-async-conflation="false" enable-subscription-conflation="false" enable-gateway="false" data-policy  ="persistent-replicate" initial-capacity="16" load-factor="0.75"
+ concurrency-level="16" statistics-enabled="false" ignore-jta="false" is-lock-grantor="false" pool-name="" disk-store-name="sharedDiskStore" disk-synchronous="false" cloning-enabled="false">
+       <region-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-time-to-live>
+       <region-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </region-idle-time>
+       <entry-time-to-live>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-time-to-live>
+       <entry-idle-time>
+         <expiration-attributes timeout="0" action="invalidate"/>
+       </entry-idle-time>
+       <disk-dirs>
+         <disk-dir>vm_6_oldVersion1_disk_1 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_2 </disk-dir>
+         <disk-dir>vm_6_oldVersion1_disk_3 </disk-dir>
+       </disk-dirs>
+       <subscription-attributes interest-policy="cache-content"/>
+     </region-attributes>
+   </region>
+   <resource-manager critical-heap-percentage="0" eviction-heap-percentage="0"/>  </cache>
+

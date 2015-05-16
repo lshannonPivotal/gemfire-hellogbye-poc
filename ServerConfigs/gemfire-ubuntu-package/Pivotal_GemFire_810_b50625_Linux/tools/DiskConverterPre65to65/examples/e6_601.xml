@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE cache PUBLIC "-//GemStone Systems, Inc.//GemFire Declarative Caching 6.0//EN" "http://www.gemstone.com/dtd/cache6_0.dtd">
+<cache> 
+    <bridge-server port="50505" notify-by-subscription="true" max-connections="5000" maximum-time-between-pings="-1"/>
+
+      <region-attributes id="temp" data-policy="persistent-replicate" scope="distributed-ack" statistics-enabled="false">
+        <key-constraint>java.lang.Object</key-constraint>
+        <value-constraint>java.lang.Object</value-constraint>
+        <disk-write-attributes roll-oplogs="true" >
+          <synchronous-writes/>
+        </disk-write-attributes>
+        <disk-dirs>
+          <disk-dir>overflow_data_2</disk-dir>
+        </disk-dirs>
+        <cache-loader>
+          <class-name>patch.SimpleCacheLoader</class-name>
+        </cache-loader>
+        <cache-writer>
+          <class-name>patch.SimpleCacheWriter</class-name>
+        </cache-writer>
+        <cache-listener>
+          <class-name>patch.SimpleCacheListener</class-name>
+        </cache-listener>
+      </region-attributes>
+
+    <vm-root-region name="root">
+    <region-attributes scope="distributed-no-ack" data-policy="persistent-replicate">
+        <disk-dirs>
+          <disk-dir>overflow_data_0</disk-dir>
+        </disk-dirs>
+    </region-attributes>
+
+    <region name="region1">
+      <region-attributes data-policy="persistent-replicate" scope="distributed-ack" statistics-enabled="false">
+        <key-constraint>java.lang.Object</key-constraint>
+        <value-constraint>java.lang.Object</value-constraint>
+        <disk-write-attributes roll-oplogs="true" >
+          <synchronous-writes/>
+        </disk-write-attributes>
+        <disk-dirs>
+          <disk-dir>overflow_data_1</disk-dir>
+        </disk-dirs>
+        <cache-loader>
+          <class-name>patch.SimpleCacheLoader</class-name>
+        </cache-loader>
+        <cache-writer>
+          <class-name>patch.SimpleCacheWriter</class-name>
+        </cache-writer>
+        <cache-listener>
+          <class-name>patch.SimpleCacheListener</class-name>
+        </cache-listener>
+      </region-attributes>
+    </region>
+
+    <region name="region2">
+      <region-attributes refid="temp"/>
+    </region>
+
+    <region name="region4">
+      <region-attributes>
+        <partition-attributes redundant-copies="0" total-num-buckets="30"/>
+      </region-attributes>
+    </region>
+
+  </vm-root-region>
+
+    <region name="region3">
+      <region-attributes data-policy="empty" scope="distributed-ack" statistics-enabled="false"/>
+    </region>
+
+</cache>
+

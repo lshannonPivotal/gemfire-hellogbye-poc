@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE cache PUBLIC "-//GemStone Systems, Inc.//GemFire Declarative Caching 6.0//EN" "http://www.gemstone.com/dtd/cache6_0.dtd">
+<cache> 
+    <vm-root-region name="root">
+    <region-attributes scope="distributed-no-ack" data-policy="persistent-replicate">
+        <disk-dirs>
+          <disk-dir>overflow_data_0</disk-dir>
+        </disk-dirs>
+    </region-attributes>
+
+    <region name="region1">
+      <region-attributes data-policy="persistent-replicate" scope="distributed-ack" statistics-enabled="false">
+        <disk-write-attributes roll-oplogs="true" >
+          <synchronous-writes/>
+        </disk-write-attributes>
+        <disk-dirs>
+          <disk-dir>overflow_data_1</disk-dir>
+        </disk-dirs>
+      </region-attributes>
+    </region>
+
+    <region name="region2">
+      <region-attributes data-policy="persistent-replicate" scope="distributed-ack" statistics-enabled="false">
+        <disk-write-attributes roll-oplogs="true" >
+          <synchronous-writes/>
+        </disk-write-attributes>
+        <disk-dirs>
+          <disk-dir>overflow_data_2</disk-dir>
+        </disk-dirs>
+      </region-attributes>
+    </region>
+  </vm-root-region>
+</cache>
+

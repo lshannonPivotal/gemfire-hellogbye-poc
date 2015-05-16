@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE cache PUBLIC "-//GemStone Systems, Inc.//GemFire Declarative Caching 6.5//EN" "http://www.gemstone.com/dtd/cache6_5.dtd">
+<cache>
+  <disk-store name="ds1" auto-compact="true">
+    <disk-dirs>
+        <disk-dir>overflow_data_1</disk-dir>
+    </disk-dirs>
+  </disk-store>
+
+  <disk-store name="ds2" auto-compact="false">
+    <disk-dirs>
+        <disk-dir>overflow_data_2</disk-dir>
+    </disk-dirs>
+  </disk-store>
+    
+  <vm-root-region name="root">
+    <region-attributes scope="distributed-no-ack" data-policy="empty">
+    </region-attributes>
+
+    <region name="region1">
+      <region-attributes scope="distributed-no-ack" data-policy="persistent-replicate" disk-store-name="ds1" disk-synchronous="true">
+      </region-attributes>
+    </region>
+
+  </vm-root-region>
+</cache>
+
