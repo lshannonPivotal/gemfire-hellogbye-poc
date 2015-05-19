@@ -125,6 +125,31 @@ http://52.7.9.136:7070/pulse
 
 ![cluster view](/images/cluster_view.png)
 
+# Creating Test Data
+From a control machine the setup script can be ran to produce the following options:
+```shell
+Luke-Shannons-Macbook-Pro:ServerConfigs lshannon$ ./setup.sh 
+What set up?
+1: Create directories (new install)
+2: Open permissions on scripts
+3: Create data
+4: Delete data
+```
+By selecting 3, data can be created. Another prompt will ask for the number of records. 100K will result in about 23GB of data. These are basically JSON files with the cluster key as the name of the file.
+```shell
+Luke-Shannons-Macbook-Pro:ServerConfigs lshannon$ ./setup.sh 
+What set up?
+1: Create directories (new install)
+2: Open permissions on scripts
+3: Create data
+4: Delete data
+3
+How many copies?
+100000
+```
+Creation of data takes some time. Be careful not to create more than the hard drive allows for. Ensure to leave room for persistence as well.
+
+
 # Using the client
 The client application is uploaded to the second Locator/Server machine. Due to how this cluster is configured, the client must be on the same network as the members. To start the client, run the startSampleApp.sh command. It will generate a log and a txt file with the PID (this is used to shut the program down when stopping).
 ```shell
