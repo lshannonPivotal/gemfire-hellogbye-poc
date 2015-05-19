@@ -123,6 +123,33 @@ Done!
 Once the cluster is started, pulse can be accessed on the primary locator. This will give an overview of the cluster and how data is distributed. Example:
 http://52.7.9.136:7070/pulse
 
+![cluster view](/images/cluster_view.png)
+
+# Creating Test Data
+From a control machine the setup script can be ran to produce the following options:
+```shell
+Luke-Shannons-Macbook-Pro:ServerConfigs lshannon$ ./setup.sh 
+What set up?
+1: Create directories (new install)
+2: Open permissions on scripts
+3: Create data
+4: Delete data
+```
+By selecting 3, data can be created. Another prompt will ask for the number of records. 100K will result in about 23GB of data. These are basically JSON files with the cluster key as the name of the file.
+```shell
+Luke-Shannons-Macbook-Pro:ServerConfigs lshannon$ ./setup.sh 
+What set up?
+1: Create directories (new install)
+2: Open permissions on scripts
+3: Create data
+4: Delete data
+3
+How many copies?
+100000
+```
+Creation of data takes some time. Be careful not to create more than the hard drive allows for. Ensure to leave room for persistence as well.
+
+
 # Using the client
 The client application is uploaded to the second Locator/Server machine. Due to how this cluster is configured, the client must be on the same network as the members. To start the client, run the startSampleApp.sh command. It will generate a log and a txt file with the PID (this is used to shut the program down when stopping).
 ```shell
@@ -143,6 +170,8 @@ Function returned: LoadingSummary [memberName=ip-172-31-39-163(ip-172-31-39-163-
 Function returned: LoadingSummary [memberName=ip-172-31-39-161(ip-172-31-39-161-server:2190)<v3>:17976, startTime=1432058645355, endTime=1432058927782, totalSegments=100001, segmentsSkipped=75051, segmentsLoaded=24950]
 Function returned: LoadingSummary [memberName=ip-172-31-39-162(ip-172-31-39-162-server:1863)<v4>:36367, startTime=1432058645300, endTime=1432058928238, totalSegments=100001, segmentsSkipped=75063, segmentsLoaded=24938]
 ```
+The entry distribution across members in Pulse.
+![cluster view](/images/data_distribution.png)
 
 # Accessing the machines
 By running the ssh script from a target machine a prompt will be provided to access the machines.
@@ -164,6 +193,32 @@ ubuntu@ip-172-31-39-161:~$
 ```
 
 # Stopping the Cluster
+By running the stop_cluster.sh command on a control machine, the following output can be seen:
+```shell
+Stop the servers
+Stop Commands Completed
+Done!
+Stop Commands Completed
+Done!
+Stop Commands Completed
+Done!
+Stop Commands Completed
+Done!
+Stop the locators
+
+(1) Executing - stop locator --dir=/home/ubuntu/cluster/gemfire-ubuntu-package/members/ip-172-31-39-161-locator
+
+...
+ip-172-31-39-161-locator is stopped
+Done!
+
+(1) Executing - stop locator --dir=/home/ubuntu/cluster/gemfire-ubuntu-package/members/ip-172-31-39-160-locator
+
+.......
+ip-172-31-39-160-locator is stopped
+Done!
+```
+This results in all the Gemfire processes shutting down, but their persistent files not being deleted.
 
 # Clean Up
 This will delete all the working directories. This is used for a fresh start. Note, this will not remove any running Java processes, the shutdown_cluster script needs to be used for that. Also, this will delete a persistent files resulting in data loss. To perform this run the clean_cluster script on a target machine.
