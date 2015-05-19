@@ -43,7 +43,7 @@ public class DataLoaderFunctionApplicationTestsGfApi {
 	public void test() {
 		log.debug("Starting Data Load");
 		GemfireOnRegionFunctionTemplate template = new GemfireOnRegionFunctionTemplate(region);
-		Iterable<String> result = template.execute(DataLoadFunction.ID);
+		Iterable<String> result = template.execute(DataLoadFunction.ID,"/Users/lshannon/Documents/git/gemfire-hellogbye-poc/DataLoaderFunction/src/test/resources/data/");
 		log.debug("Here are the function results");
 		if (result != null) {
 			for (Object d : result) {

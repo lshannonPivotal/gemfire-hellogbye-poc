@@ -1,11 +1,13 @@
 package io.pivotal.fe.hellogbye.gemfire.loader;
 
 import io.pivotal.fe.hellogbye.gemfire.model.Segment;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+
 import com.gemstone.gemfire.LogWriter;
 import com.gemstone.gemfire.cache.Cache;
 import com.gemstone.gemfire.cache.CacheFactory;
@@ -34,16 +36,18 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 
 	private static final long serialVersionUID = -7759261808685094980L;
 
-	public DataLoadFunction() {
-		Cache cache = CacheFactory.getAnyInstance();
-		this.logger = cache.getLogger();
-		this.member = cache.getDistributedSystem().getDistributedMember();
-		backUpDirectory = "/home/ubuntu/cluster/gemfire-ubuntu-package/data/";
-	}
-
 	@Override
 	public void execute(FunctionContext context) {
 		System.out.println("Got the context: " + context);
+		System.out.println("Arguments are null: " + (context.getArguments() == null) != null ? true : false);
+		if (context.getArguments() == null) {
+			System.out.println("Must Provide the location of the data folder when executing the function.");
+			context.getResultSender().lastResult("Must Provide the location of the data folder when executing the function.");
+		}
+		Cache cache = CacheFactory.getAnyInstance();
+		this.member = cache.getDistributedSystem().getDistributedMember();
+		Object[] arg = (Object[]) context.getArguments();
+		backUpDirectory = (String) arg[0];
 		RegionFunctionContext rfc = (RegionFunctionContext) context;
 		String loadingSummary = null;
 		try {

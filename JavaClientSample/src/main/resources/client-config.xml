@@ -15,14 +15,14 @@
 		<constructor-arg value="io.pivotal.fe.hellogbye.gemfire.model.*" />
 	</bean>
 
-	<gfe:client-cache  pool-name="gemfirePool" pdx-serializer-ref="pdxSerializer"/>
+	<gfe:client-cache id="gemfireCache" pool-name="gemfirePool" pdx-serializer-ref="pdxSerializer" pdx-persistent="true"/>
 
 
-	<gfe:client-region id="segments"/>
+	<gfe:client-region id="segments" cache-ref="gemfireCache" />
 		
-	<gfe:pool id="gemfirePool">
-		<gfe:locator host="ec2-52-7-9-136.compute-1.amazonaws.com" port="10334" />
-		<gfe:locator host="ec2-52-7-17-211.compute-1.amazonaws.com" port="10334" />
+	<gfe:pool>
+		<gfe:locator host="${locator}" port="10334" />
 	</gfe:pool>
+
 
 </beans>

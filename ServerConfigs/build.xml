@@ -1,0 +1,9 @@
+<project basedir=".">
+	<target name="update_package">
+		<copy file="../DataLoaderFunction/target/DataLoaderFunction-0.0.1-SNAPSHOT.jar" todir="gemfire-ubuntu-package/lib"/>
+		<copy file="../JavaClientSample/target/JavaClientSample-0.0.1-SNAPSHOT.jar" todir="gemfire-ubuntu-package/client"/>
+		<copy file="../JavaClientSample/startSampleApp.sh" todir="gemfire-ubuntu-package/client"/>
+		<copy file="../JavaClientSample/stopSampleApp.sh" todir="gemfire-ubuntu-package/client"/>
+		<copy file="../HelloGByeModel/target/HelloGByeModel-0.0.1-SNAPSHOT.jar" todir="gemfire-ubuntu-package/lib"/>
+	</target>
+</project>

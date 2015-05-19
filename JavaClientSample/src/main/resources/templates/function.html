@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Function Results</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>The results of the function data load:</h1>
+    <p th:text="'Total Time: ' + ${time} + '" />
+    <h1>Results From Members:</h1>
+    <table>
+      <tr>
+        <th>Server Result</th>
+      </tr>
+      <tr th:each="result : ${results}">
+        <td th:text="${result}">result</td>
+      </tr>
+    </table>
+</body>
+</html>

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ImportResource;
 
 
 @SpringBootApplication
-@ImportResource("classpath:cache-config.xml")
+@ImportResource("classpath:client-config.xml")
 public class JavaClientSampleApplication {
 
     public static void main(String[] args) {
