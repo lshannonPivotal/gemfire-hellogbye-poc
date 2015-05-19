@@ -67,5 +67,5 @@ if [[ ("$option" -eq "6") ]]; then
 	echo "Uploading Client App"
 	echo "Uploading to Locator 2"
 	scp -r -i gemfire.pem gemfire-ubuntu-package/client ubuntu@$LOCATOR_SERVER_2:/home/ubuntu/cluster/gemfire-ubuntu-package
-	ssh -i gemfire.pem ubuntu@$LOCATOR_SERVER_2 nohup java -jar /home/ubuntu/cluster/gemfire-ubuntu-package/client/JavaClientSample-0.0.1-SNAPSHOT.jar
 fi
+echo "Done!"

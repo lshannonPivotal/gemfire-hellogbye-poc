@@ -1,4 +1,5 @@
 #!/bin/bash
 source /home/ubuntu/cluster/gemfire-ubuntu-package/scripts/setenv.sh
-gfsh -e "stop server --dir=$SERVER_DIR_LOCATION/$SERVER_NAME"
+gfsh run --file=serverStart.gf
 echo "Stop Commands Completed"
+echo "Done!"

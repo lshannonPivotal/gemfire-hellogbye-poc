@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE cache PUBLIC "-//GemStone Systems, Inc.//GemFire Declarative Caching 7.0//EN" "http://www.gemstone.com/dtd/cache7_0.dtd">
-<cache>
+<cache >
 
 	<!-- Cache Server Configuration (port="0" - dynamically picks open port, 40404 is typically used)-->
 	<cache-server port="0"/>
 	
-	<disk-store name="ds1" auto-compact="true" compaction-threshold="50" max-oplog-size="100" queue-size="10000" time-interval="1000"/>
+	<disk-store name="ds1" compaction-threshold="40" auto-compact="false" allow-force-compaction="true" max-oplog-size="512" time-interval="15" write-buffer-size="65536">
+		<disk-dirs>
+			<disk-dir>./data</disk-dir>
+		</disk-dirs>
+	</disk-store>
 	
-	<pdx>
+	<pdx persistent="true" read-serialized="true">
 		<pdx-serializer>
 			<class-name>
 				com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer
@@ -19,9 +23,9 @@
 	</pdx>
 	
 	<region name="segments">
-                <region-attributes refid="PARTITION">
-                        <partition-attributes  total-num-buckets="131"/>
-		</region-attributes>
+    	<region-attributes refid="PARTITION_PERSISTENT" disk-store-name="ds1">
+       		<partition-attributes  total-num-buckets="521"/>
+       	</region-attributes>
 	</region>
 	
 	<function-service>
