@@ -22,7 +22,7 @@ Everything is all the dependancies, scripts is the shell scripts used to start a
 
 # Starting the Cluster
 Once the environment is configured and files have been loaded, from a control machine the start_cluster script can be executed.
-The following output is typical.
+The following output is typical (this is starting a 6 member cluster, 2 locators and 4 servers, across 4 machines).
 ```shell
 Start Time : 13:51:23
 Start the locators
@@ -120,6 +120,8 @@ Class-Path: /home/ubuntu/cluster/gemfire-ubuntu-package/Pivotal_GemFire_810_b506
 End Time : 13:53:33
 Done!
 ```
+Once the cluster is started, pulse can be accessed on the primary locator. This will give an overview of the cluster and how data is distributed. Example:
+http://52.7.9.136:7070/pulse
 
 # Accessing the machines
 By running the ssh script from a target machine a prompt will be provided to access the machines.
