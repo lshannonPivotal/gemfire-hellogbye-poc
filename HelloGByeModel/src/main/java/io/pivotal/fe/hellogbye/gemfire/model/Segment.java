@@ -25,6 +25,7 @@ public class Segment {
 	private String FareClass;
 	private String FarePreference;
 	private List<Segment> Legs;
+	
 	public String getAvailableFlightId() {
 		return AvailableFlightId;
 	}

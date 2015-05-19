@@ -5,15 +5,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>This is a simple Java application to show how to:</h1>
-	<a href="/function">Trigger the function to load data</a>
-	<br/>
-	<a href="/get">Perform a get on a key</a>
+	<p>Perform a get on key</p>
+	<p th:text="${key}"></p>
+	<p>Time for get</p>
+	<p th:text="${time}"></p>
+	<p>Value</p>
+	<p th:text="${value}"></p>
+	<!-- 
 	<table>
       <tr>
         <th>Server Result (Nested legs not written out for brevity)</th>
       </tr>
-      <tr th:each="result : ${results}">
+      <tr th:each="result : ${values}">
        		 <td th:text="${result.AvailableFlightId"></td>
 			 <td th:text="${result.Origin"></td>
 			 <td th:text="${result.Destination"></td>
@@ -31,5 +34,6 @@
 			 <td th:text="${result.FarePreference"></td>
       </tr>
     </table>
+     -->
 </body>
 </html>
