@@ -1,13 +1,13 @@
 # gemfire-hellogbye-poc
 A small sample on how Gemfire can be used as a distributed cache for this application
 
-== Prerequisites
+==Prerequisites
 To run this 4 machines are required. They need a dedicated network with at least 10Gb bandwidth in between members. For this POC AWS was using and c4.8xlarge instances
 
-== Configure the environment
+==Configure the environment
 In the ServerConfigs project locate the environment.sh file and add the IP addresses of the server. The first address will be the primary locator, the second address the secondary locator and the last two addresses data servers. Server processes will also be started on the locator machine. It is assumed that there will be a directory called /home/ubuntu/cluster. This is the home directory all scripts will work from.
 
-== Upload the files
+==Upload the files
 By running the scp script in the ServerConfigs project a prompt will appear to determine which files should be uploaded:
 [bash]
 ----
