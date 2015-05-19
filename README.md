@@ -145,6 +145,8 @@ Function returned: LoadingSummary [memberName=ip-172-31-39-163(ip-172-31-39-163-
 Function returned: LoadingSummary [memberName=ip-172-31-39-161(ip-172-31-39-161-server:2190)<v3>:17976, startTime=1432058645355, endTime=1432058927782, totalSegments=100001, segmentsSkipped=75051, segmentsLoaded=24950]
 Function returned: LoadingSummary [memberName=ip-172-31-39-162(ip-172-31-39-162-server:1863)<v4>:36367, startTime=1432058645300, endTime=1432058928238, totalSegments=100001, segmentsSkipped=75063, segmentsLoaded=24938]
 ```
+The entry distribution across members in Pulse.
+![cluster view](/images/data_distribution.png)
 
 # Accessing the machines
 By running the ssh script from a target machine a prompt will be provided to access the machines.
