@@ -123,6 +123,8 @@ Done!
 Once the cluster is started, pulse can be accessed on the primary locator. This will give an overview of the cluster and how data is distributed. Example:
 http://52.7.9.136:7070/pulse
 
+![cluster view](/images/cluster_view.png)
+
 # Using the client
 The client application is uploaded to the second Locator/Server machine. Due to how this cluster is configured, the client must be on the same network as the members. To start the client, run the startSampleApp.sh command. It will generate a log and a txt file with the PID (this is used to shut the program down when stopping).
 ```shell
