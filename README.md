@@ -7,7 +7,7 @@ In the ServerConfigs project locate the environment.sh file and add the IP addre
 # Upload the files
 By running the scp script in the ServerConfigs project a prompt will appear to determine which files should be uploaded:
 
-{% highlight bash %}
+```shell
 Luke-Shannons-Macbook-Pro:ServerConfigs lshannon$ ./scp.sh 
 What to upload?
 1: Everything
@@ -16,7 +16,7 @@ What to upload?
 4: lib
 5: data
 6: Client App
-{% endhighlight %}
+```
 
 Everything is all the dependancies, scripts is the shell scripts used to start and stop the Gemfire processes on each member, conf is the Gemfire configurations for each member, lib is where custom code Gemfire uses can be loaded (everything in here will be loaded in the CLASSPATH of Gemfire), data is the sample data for the POC and Client App is a sample application and shell scripts to start and stop it.
 
