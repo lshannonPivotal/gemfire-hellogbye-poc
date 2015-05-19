@@ -135,10 +135,13 @@ The program can then be accessed with a URL similar to this:
 http://52.7.17.211:8080/home
 Load Data first, then use the Get Data link, otherwise there will be no data to get.
 
-By viewing Pulse, the entries can be seen streaming into the cluster. The summary of data loading should look something like this.
+By viewing Pulse, the entries can be seen streaming into the cluster. The summary of data loading should look something like this. On the test environment 23 GB took about 4 minutes and 7 seconds. This was done with no tuning and not an ideal disk store for the persistent file updates.
 
 ```shell
-
+Function returned: LoadingSummary [memberName=ip-172-31-39-160(ip-172-31-39-160-server:2196)<v2>:40637, startTime=1432058645301, endTime=1432058918333, totalSegments=100001, segmentsSkipped=75101, segmentsLoaded=24900]
+Function returned: LoadingSummary [memberName=ip-172-31-39-163(ip-172-31-39-163-server:1862)<v5>:46968, startTime=1432058645256, endTime=1432058921403, totalSegments=100001, segmentsSkipped=74788, segmentsLoaded=25213]
+Function returned: LoadingSummary [memberName=ip-172-31-39-161(ip-172-31-39-161-server:2190)<v3>:17976, startTime=1432058645355, endTime=1432058927782, totalSegments=100001, segmentsSkipped=75051, segmentsLoaded=24950]
+Function returned: LoadingSummary [memberName=ip-172-31-39-162(ip-172-31-39-162-server:1863)<v4>:36367, startTime=1432058645300, endTime=1432058928238, totalSegments=100001, segmentsSkipped=75063, segmentsLoaded=24938]
 ```
 
 # Accessing the machines
