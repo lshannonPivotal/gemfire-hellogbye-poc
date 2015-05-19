@@ -164,6 +164,32 @@ ubuntu@ip-172-31-39-161:~$
 ```
 
 # Stopping the Cluster
+By running the stop_cluster.sh command on a control machine, the following output can be seen:
+```shell
+Stop the servers
+Stop Commands Completed
+Done!
+Stop Commands Completed
+Done!
+Stop Commands Completed
+Done!
+Stop Commands Completed
+Done!
+Stop the locators
+
+(1) Executing - stop locator --dir=/home/ubuntu/cluster/gemfire-ubuntu-package/members/ip-172-31-39-161-locator
+
+...
+ip-172-31-39-161-locator is stopped
+Done!
+
+(1) Executing - stop locator --dir=/home/ubuntu/cluster/gemfire-ubuntu-package/members/ip-172-31-39-160-locator
+
+.......
+ip-172-31-39-160-locator is stopped
+Done!
+```
+This results in all the Gemfire processes shutting down, but their persistent files not being deleted.
 
 # Clean Up
 This will delete all the working directories. This is used for a fresh start. Note, this will not remove any running Java processes, the shutdown_cluster script needs to be used for that. Also, this will delete a persistent files resulting in data loss. To perform this run the clean_cluster script on a target machine.
