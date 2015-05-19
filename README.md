@@ -20,5 +20,5 @@ What to upload?
 
 Everything is all the dependancies, scripts is the shell scripts used to start and stop the Gemfire processes on each member, conf is the Gemfire configurations for each member, lib is where custom code Gemfire uses can be loaded (everything in here will be loaded in the CLASSPATH of Gemfire), data is the sample data for the POC and Client App is a sample application and shell scripts to start and stop it.
 
-== Starting the Cluster
+# Starting the Cluster
 Once the environment is configured and files have been loaded, from a control machine the start_cluster script can be executed.
