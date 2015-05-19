@@ -123,6 +123,24 @@ Done!
 Once the cluster is started, pulse can be accessed on the primary locator. This will give an overview of the cluster and how data is distributed. Example:
 http://52.7.9.136:7070/pulse
 
+# Using the client
+The client application is uploaded to the second Locator/Server machine. Due to how this cluster is configured, the client must be on the same network as the members. To start the client, run the startSampleApp.sh command. It will generate a log and a txt file with the PID (this is used to shut the program down when stopping).
+```shell
+ubuntu@ip-172-31-39-161:~/cluster/gemfire-ubuntu-package/client$ ls
+JavaClientSample-0.0.1-SNAPSHOT.jar  startSampleApp.sh
+java-client-sample.log               stopSampleApp.sh
+java-client-sample_pid.txt
+```
+The program can then be accessed with a URL similar to this:
+http://52.7.17.211:8080/home
+Load Data first, then use the Get Data link, otherwise there will be no data to get.
+
+By viewing Pulse, the entries can be seen streaming into the cluster. The summary of data loading should look something like this.
+
+```shell
+
+```
+
 # Accessing the machines
 By running the ssh script from a target machine a prompt will be provided to access the machines.
 ```shell
