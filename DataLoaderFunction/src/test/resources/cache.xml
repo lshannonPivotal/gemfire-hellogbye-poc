@@ -19,9 +19,8 @@
 	</pdx>
 	
 	<region name="segments">
-                <region-attributes refid="PARTITION">
-                        <partition-attributes  total-num-buckets="131"/>
-		</region-attributes>
+            <region-attributes refid="PARTITION">
+			</region-attributes>
 	</region>
 	
 	<function-service>

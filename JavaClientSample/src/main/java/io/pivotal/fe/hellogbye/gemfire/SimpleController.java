@@ -23,8 +23,8 @@ public class SimpleController {
 	@RequestMapping("/function")
     public String function(Model model) {
     	GemfireOnRegionFunctionTemplate template = new GemfireOnRegionFunctionTemplate(region);
-		Iterable<String> result = template.execute(DataLoadFunction.ID, "/home/ubuntu/cluster/gemfire-ubuntu-package/data/");
 		long start = System.nanoTime();
+		Iterable<String> result = template.execute(DataLoadFunction.ID, "/home/ubuntu/cluster/gemfire-ubuntu-package/data/");
 		System.out.println("Here are the function results");
 		if (result != null) {
 			for (Object d : result) {
@@ -48,8 +48,19 @@ public class SimpleController {
 		long elapsedTime = end - start;
 		model.addAttribute("time",TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS));
 		model.addAttribute("key",key);
-		model.addAttribute("values",segment);
+		StringBuffer sb = new StringBuffer();
+		for (Segment s : segment) {
+			sb.append(s.toString());
+		}
+		model.addAttribute("values",sb.toString());
 		return "get";
+	}
+	
+	@RequestMapping("/list")
+	public String list(Model model) {
+		model.addAttribute("isEmpty", region.isEmpty());
+		model.addAttribute("keys", region.keySet().size());
+		return "list";
 	}
 	
     

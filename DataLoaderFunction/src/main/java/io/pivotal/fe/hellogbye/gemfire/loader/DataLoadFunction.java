@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 
 /**
  * This is a function to read HelloGBye JSON files into Gemfire
+ * It deletes each file as its loaded
  * 
  * @author lshannon
  *
@@ -46,6 +47,7 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 		}
 		Cache cache = CacheFactory.getAnyInstance();
 		this.member = cache.getDistributedSystem().getDistributedMember();
+		logger = cache.getDistributedSystem().getLogWriter();
 		Object[] arg = (Object[]) context.getArguments();
 		backUpDirectory = (String) arg[0];
 		RegionFunctionContext rfc = (RegionFunctionContext) context;
@@ -69,14 +71,14 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 	 */
 	@SuppressWarnings("unchecked")
 	private String loadSegments(@SuppressWarnings("rawtypes") Region region) {
-		System.out.println("Started loading segments from: " + backUpDirectory);
+		logger.info("Started loading segments from: " + backUpDirectory);
 		// summary of the loading process
 		long startTime = 0, endTime = 0;
 		int totalSegments = 0, loadedSegments = 0, skippedSegments = 0;
 		startTime = System.currentTimeMillis();
 		BufferedReader br = null;
 		File segments = new File(backUpDirectory);
-		System.out.println("Loading From: " + backUpDirectory + " " + segments.list().length + " file to process");
+		logger.info("Loading From: " + backUpDirectory + " " + segments.list().length + " file to process");
 		String[] files = segments.list();
 		Gson gson = new Gson();
 		for (int i = 0; i < files.length; i++) {
@@ -95,8 +97,12 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 						//get an array of Segment objects http://stackoverflow.com/questions/3763937/gson-and-deserializing-an-array-of-objects-with-arrays-in-it
 						Segment[] segmentValue = gson.fromJson(br,Segment[].class);
 						//put the value in
+						logger.info("Putting: " + segmentValue.toString());
 						region.put(key, segmentValue);
+						logger.info("Put complete");
 						loadedSegments++;
+						//delete the file after its been loaded
+						//Files.delete(new File(backUpDirectory + files[i]).toPath());
 					} else {
 						skippedSegments++;
 					}
@@ -119,6 +125,7 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 		endTime = System.currentTimeMillis();
 		//return the summary
 		DataLoadFunction.LoadingSummary loadingSummary = new LoadingSummary(member.toString(), startTime, endTime, totalSegments, skippedSegments, loadedSegments);
+		logger.info("Loading Complete: " + loadingSummary.toString());
 		return loadingSummary.toString();
 	}
 

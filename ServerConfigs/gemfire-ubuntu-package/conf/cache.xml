@@ -23,8 +23,7 @@
 	</pdx>
 	
 	<region name="segments">
-    	<region-attributes refid="PARTITION_PERSISTENT" disk-store-name="ds1">
-       		<partition-attributes  total-num-buckets="521"/>
+    		<region-attributes refid="PARTITION_PERSISTENT" disk-store-name="ds1">
        	</region-attributes>
 	</region>
 	
