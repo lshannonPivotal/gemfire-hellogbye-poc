@@ -15,6 +15,7 @@ export PUBLIC_IP_ADDRESS=`dig +short myip.opendns.com @resolver1.opendns.com`
 export LOCATOR_PORT=10334
 export LOCATOR_1_IP=ec2-52-4-67-120.compute-1.amazonaws.com
 export LOCATOR_2_IP=ec2-52-0-225-28.compute-1.amazonaws.com
+export PUBLIC_DNS=`curl http://169.254.169.254/latest/meta-data/public-hostname`
 export PATH=$PATH:$JAVA_HOME/bin:$GEMFIRE/bin
 export CLASSPATH=$CLASSPATH:$GEMFIRE/lib/*:$JAVA_HOME/lib/tools.jar:$CONF_DIR/:$CONF_DIR/*:$LIB_DIR/:$LIB_DIR/*
 export HOSTNAME=$(hostname)

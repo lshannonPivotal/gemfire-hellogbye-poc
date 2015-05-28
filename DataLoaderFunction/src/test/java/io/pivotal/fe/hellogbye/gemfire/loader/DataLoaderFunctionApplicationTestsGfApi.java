@@ -33,7 +33,7 @@ public class DataLoaderFunctionApplicationTestsGfApi {
 		.set("jmx-manager", "true")
 		.set("jmx-manager-start", "true")
 		.set("jmx-manager-http-port", "0")
-		.set("cache-xml-file", "cache.xml")
+		.set("cache-xml-file", "testing-gemfire.xml")
 		.create();
 		region = cache.getRegion("segments");
 	}

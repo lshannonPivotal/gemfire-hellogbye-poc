@@ -11,6 +11,7 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/gemfire http://www.springframework.org/schema/gemfire/spring-gemfire.xsd">
 
+
 	<bean id="pdxSerializer" class="com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer">
 		<constructor-arg value="io.pivotal.fe.hellogbye.gemfire.model.*" />
 	</bean>
@@ -23,6 +24,8 @@
 	<gfe:pool id="gemfirePool">
 		<gfe:locator host="${locator}" port="10334" />
 	</gfe:pool>
+	
+	<gfe:annotation-driven />
 
 
 </beans>

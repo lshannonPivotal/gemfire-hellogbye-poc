@@ -10,4 +10,4 @@ if [ $IP_ADDRESS == $LOCATOR_2_IP ] ; then
 else
 	export OTHER_LOCATOR=$LOCATOR_2_IP
 fi
-gfsh -e "start locator --name=$LOCATOR_NAME --locators=$OTHER_LOCATOR[$LOCATOR_PORT] --bind-address=$HOSTNAME --enable-cluster-configuration=false --dir=$SERVER_DIR_LOCATION/$LOCATOR_NAME --port=$LOCATOR_PORT --J=-Xms1g --J=-Xmx1g --log-level=error --J=-Dcom.sun.management.jmxremote --J=-Dcom.sun.management.jmxremote.port=15666 --J=-Dcom.sun.management.jmxremote.ssl=false --J=-Dcom.sun.management.jmxremote.authenticate=false --J=-Dcom.sun.management.jmxremote.local.only=false --J=-Djava.rmi.server.hostname=$IP_ADDRESS"
+gfsh -e "start locator --name=$LOCATOR_NAME --locators=$OTHER_LOCATOR[$LOCATOR_PORT] --bind-address=$PUBLIC_DNS --enable-cluster-configuration=false --dir=$SERVER_DIR_LOCATION/$LOCATOR_NAME --port=$LOCATOR_PORT --J=-Xms1g --J=-Xmx1g --log-level=error --J=-Dcom.sun.management.jmxremote --J=-Dcom.sun.management.jmxremote.port=15666 --J=-Dcom.sun.management.jmxremote.ssl=false --J=-Dcom.sun.management.jmxremote.authenticate=false --J=-Dcom.sun.management.jmxremote.local.only=false --J=-Djava.rmi.server.hostname=$IP_ADDRESS"
