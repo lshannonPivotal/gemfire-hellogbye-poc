@@ -11,7 +11,7 @@
 		</disk-dirs>
 	</disk-store>
 	
-	<pdx persistent="true" read-serialized="true">
+	<pdx persistent="true">
 		<pdx-serializer>
 			<class-name>
 				com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer

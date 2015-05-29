@@ -18,6 +18,7 @@ import com.gemstone.gemfire.cache.execute.FunctionContext;
 import com.gemstone.gemfire.cache.execute.RegionFunctionContext;
 import com.gemstone.gemfire.cache.partition.PartitionRegionHelper;
 import com.gemstone.gemfire.distributed.DistributedMember;
+import com.gemstone.gemfire.pdx.PdxInstance;
 import com.google.gson.Gson;
 
 /**
@@ -99,10 +100,15 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 						//put the value in
 						logger.info("Putting: " + segmentValue.toString());
 						region.put(key, segmentValue);
+						@SuppressWarnings("unused")
+						Object myserty = region.get(key);
+						Segment[] getValue = toObject(region.get(key), Segment[].class);
 						logger.info("Put complete");
+						logger.info("Got:");
+						for (Segment s : getValue) {
+							logger.info("Date: " + s.getArrivalDate());
+						}
 						loadedSegments++;
-						//delete the file after its been loaded
-						//Files.delete(new File(backUpDirectory + files[i]).toPath());
 					} else {
 						skippedSegments++;
 					}
@@ -151,6 +157,14 @@ public class DataLoadFunction extends FunctionAdapter implements Declarable {
 
 	@Override
 	public void init(Properties arg0) {
+	}
+	
+	@SuppressWarnings("unchecked")
+	private <T> T toObject(final Object object, final Class<T> clazz) {
+		if (object instanceof PdxInstance) {
+			return (T) ((PdxInstance) object).getObject();
+		}
+		return (T) object;
 	}
 
 	/**

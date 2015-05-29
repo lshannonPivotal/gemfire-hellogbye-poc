@@ -1,39 +1,64 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Get Results</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Get Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 5px;
+}
+</style>
 </head>
 <body>
 	<p>Perform a get on key</p>
 	<p th:text="${key}"></p>
 	<p>Time for get</p>
 	<p th:text="${time}"></p>
-	<p>Value</p>
-	<p th:text="${value}"></p>
-	<!-- 
-	<table>
-      <tr>
-        <th>Server Result (Nested legs not written out for brevity)</th>
-      </tr>
-      <tr th:each="result : ${values}">
-       		 <td th:text="${result.AvailableFlightId"></td>
-			 <td th:text="${result.Origin"></td>
-			 <td th:text="${result.Destination"></td>
-			 <td th:text="${result.DepartureDate"></td>
-			 <td th:text="${result.DepartureTime"></td>
-			 <td th:text="${result.ArrivalDate"></td>
-			 <td th:text="${result.ArrivalTime"></td>
-			 <td th:text="${result.TravelTime"></td>
-			 <td th:text="${result.Carrier"></td>
-			 <td th:text="${result.NoOfLegs"></td>
-			 <td th:text="${result.CitySeq"></td>
-			 <td th:text="${result.OneWayFare"></td>
-			 <td th:text="${result.ReturnFare"></td>
-			 <td th:text="${result.FareClass"></td>
-			 <td th:text="${result.FarePreference"></td>
-      </tr>
-    </table>
-     -->
+	<p>Info</p>
+	<p th:text="${info}"></p>
+	<table style="width:100%">
+	 <tr>
+    		<th>Available Flight Id</th>
+    		<th>Origin</th>		
+   		<th>Destination</th>
+   		<th>Departure Date</th>
+   		<th>Departure Time</th>
+   		<th>Arrival Date</th>
+   		<th>Arrival Time</th>
+   		<th>Travel Time</th>
+   		<th>Carrier</th>
+   		<th>No Of Legs</th>
+   		<th>City Seq</th>
+   		<th>One WayF are</th>
+   		<th>Return Fare</th>
+   		<th>Fare Class</th>
+   		<th>Fare Preference</th>
+   		<th>Legs</th>
+  	</tr>
+		<tr th:each="result : ${values}">
+			<td th:text="${result.AvailableFlightId}"></td>
+			<td th:text="${result.Origin}"></td>
+			<td th:text="${result.Destination}"></td>
+			<td th:text="${result.DepartureDate}"></td>
+			<td th:text="${result.DepartureTime}"></td>
+			<td th:text="${result.ArrivalDate}"></td>
+			<td th:text="${result.ArrivalTime}"></td>
+			<td th:text="${result.TravelTime}"></td>
+			<td th:text="${result.Carrier}"></td>
+			<td th:text="${result.NoOfLegs}"></td>
+			<td th:text="${result.CitySeq}"></td>
+			<td th:text="${result.OneWayFare}"></td>
+			<td th:text="${result.ReturnFare}"></td>
+			<td th:text="${result.FareClass}"></td>
+			<td th:text="${result.FarePreference}"></td>
+			<td>Omitted - too long</td>
+		</tr>
+	</table>
+
 </body>
 </html>
