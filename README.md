@@ -6,8 +6,8 @@ In the ServerConfigs project locate the environment.sh file and add the IP addre
 
 ## Running The Test
 Running the ./prep_for_data_load_test.sh will perform the following actions:
-- delete the data files (if 'yes' is entered for the Re-Generate Data Files? (yes) prompt)
-- create the new specified amount of files (if 'yes' is entered for the Re-Generate Data Files? (yes) prompt)
+- delete the data files (if 'yes' is entered for the Re-Generate Data Files?)
+- create the new specified amount of files (if 'yes' is entered for the Re-Generate Data Files?)
 - delete the Gemfire working directory (including the persistence files)
 - start the Gemfire cluster
 - start the demo application
