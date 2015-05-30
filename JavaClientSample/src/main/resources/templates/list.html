@@ -2,10 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>List Results</title>
+    <link href="../static/css/style.css" rel="stylesheet" media="screen" th:href="@{/css/style.css}" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<p>Keys On Server Count:</p>
-	<p th:text="${keys}"></p>
+	<h1>Cluster Stats</h1>
+	<table style="width:10%">
+		<tr>
+			<td><p>Keys On Server Count:</p></td>
+		</tr>
+		<tr>
+			<td><p th:text="${keys}"></p></td>
+		</tr>
+	</table>
 </body>
 </html>

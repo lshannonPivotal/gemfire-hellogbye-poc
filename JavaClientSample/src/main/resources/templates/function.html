@@ -1,21 +1,28 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Function Results</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Function Results</title>
+  <link href="../static/css/style.css" rel="stylesheet" media="screen" th:href="@{/css/style.css}" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>The results of the function data load:</h1>
-	<p>Total Time</p>
-    <p th:text="${time}"></p>
-    <h1>Results From Members:</h1>
-    <table>
-      <tr>
-        <th>Server Result</th>
-      </tr>
-      <tr th:each="result : ${results}">
-        <td th:text="${result}">result</td>
-      </tr>
-    </table>
+	<h1>Data Load Function Results</h1>
+	<table style="width:10%">
+		<tr>
+			<td><p>Total Time</p></td>
+			<td><p th:text="${time}"></p></td>
+		</tr>
+		<tr>
+			<td><p>Records Loaded</p></td>
+			<td><p th:text="${records}"></p></td>
+		</tr>
+	</table>
+	
+	<h1>Individual Member Results</h1>
+	<table style="width:100%">
+		<tr th:each="result : ${results}">
+			<td style="font-size: 16px;" th:text="${result}">result</td>
+		</tr>
+	</table>
 </body>
 </html>

@@ -23,7 +23,7 @@
 	</pdx>
 	
 	<region name="segments">
-    		<region-attributes refid="PARTITION_PERSISTENT" disk-store-name="ds1">
+    		<region-attributes refid="PARTITION_PERSISTENT" disk-store-name="ds1" concurrency-level="1">
        	</region-attributes>
 	</region>
 	

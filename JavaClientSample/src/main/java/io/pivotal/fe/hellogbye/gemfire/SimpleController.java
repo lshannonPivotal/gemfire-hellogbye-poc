@@ -29,6 +29,7 @@ public class SimpleController {
 		long end = System.nanoTime();
 		long elapsedTime = end - start;
 		model.addAttribute("time",TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS));
+		model.addAttribute("records", region.keySetOnServer().size());
 		model.addAttribute("results",result);
     		return "function";
     }

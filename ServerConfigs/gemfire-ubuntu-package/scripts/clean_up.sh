@@ -6,6 +6,12 @@ if [ -d "$SERVER_DIR_LOCATION/$SERVER_NAME" ]; then
 	pkill java
 	echo "All Java Processes Killed"
 fi
+if [ -d "$SERVER_DIR_LOCATION/$SERVER_NAME2" ]; then
+	rm -fr $SERVER_DIR_LOCATION/$SERVER_NAME2
+	echo "$SERVER_DIR_LOCATION/$SERVER_NAME2 deleted"
+	pkill java
+	echo "All Java Processes Killed"
+fi
 if [ -d "$SERVER_DIR_LOCATION/$LOCATOR_NAME" ]; then
 	rm -fr $SERVER_DIR_LOCATION/$LOCATOR_NAME
 	echo "$SERVER_DIR_LOCATION/$LOCATOR_NAME deleted"

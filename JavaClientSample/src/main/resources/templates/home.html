@@ -2,13 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Java Client Sample</title>
+    <link href="../static/css/style.css" rel="stylesheet" media="screen" th:href="@{/css/style.css}" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<a href="/function">Load Data</a>
-	<br/>
-	<a href="/get">Get Data</a>
-	<br/>
-	<a href="/list">List Region Key Count</a>
+	<h1>Demo Client Application</h1>
+	<table style="width:10%">
+		<tr>
+			<td><a href="/function">Load Data</a></td>
+		</tr>
+		<tr>
+			<td><a href="/get">Get Data</a></td>
+		</tr>
+		<tr>
+			<td><a href="/list">List Region Key Count</a></td>
+		</tr>
+	</table>
 </body>
 </html>

@@ -1,4 +1,4 @@
 #!/bin/sh
-kill -9 `cat java-client-sample_pid.txt`
-rm -f java-client-sample.log
-rm -f java-client-sample_pid.txt
+kill -9 `cat /home/ubuntu/cluster/gemfire-ubuntu-package/client/java-client-sample_pid.txt`
+rm -f /home/ubuntu/cluster/gemfire-ubuntu-package/client/java-client-sample.log
+rm -f /home/ubuntu/cluster/gemfire-ubuntu-package/client/java-client-sample_pid.txt
