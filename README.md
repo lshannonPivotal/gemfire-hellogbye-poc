@@ -4,6 +4,53 @@ To run this 4 machines are required. They need a dedicated network with at least
 # Configure the environment
 In the ServerConfigs project locate the environment.sh file and add the IP addresses of the server. The first address will be the primary locator, the second address the secondary locator and the last two addresses data servers. Server processes will also be started on the locator machine. It is assumed that there will be a directory called /home/ubuntu/cluster. This is the home directory all scripts will work from.
 
+# Running The Test
+Running the ./prep_for_data_load_test.sh will perform the following actions:
+- delete the data files (if 'yes' is entered for the Re-Generate Data Files? (yes) prompt)
+- create the new specified amount of files (if 'yes' is entered for the Re-Generate Data Files? (yes) prompt)
+- delete the Gemfire working directory (including the persistence files)
+- start the Gemfire cluster
+- start the demo application
+The application can be accessed with the following URL:
+http://ec2-52-0-225-28.compute-1.amazonaws.com:8080/home
+
+# Test Results
+Upon completion of the parallel load, a summary result will be displayed in the demo application:
+```shell
+
+```
+# Restarting From Persistence
+To test the start up from persistence, shutdown the data nodes in the cluster.
+```shell
+piv-wifi-19-185:ServerConfigs lshannon$ ./stop_data_nodes.sh
+Shutting Down The Cache Servers
+1. Executing - connect --locator=ec2-52-4-67-120.compute-1.amazonaws.com[10334]
+
+Connecting to Locator at [host=ec2-52-4-67-120.compute-1.amazonaws.com, port=10334] ..
+Connecting to Manager at [host=ip-172-31-38-93.ec2.internal, port=1099] ..
+Successfully connected to: [host=ip-172-31-38-93.ec2.internal, port=1099]
+
+2. Executing - shutdown
+
+Shutdown is triggered
+
+Done!
+```
+Next start the data nodes again. This script will not give a complete statement and needs to have enter pressed to complete.
+```shell
+piv-wifi-19-185:ServerConfigs lshannon$ ./restart_data_nodes.sh
+Restarting the servers
+piv-wifi-19-185:ServerConfigs lshannon$ 
+(1) Executing - start server --name=ip-172-31-38-92-server --use-cluster-configuration=false --classpath=:/home/ubuntu/cluster/gemfire-ubuntu-package/Pivotal_GemFire_810_b50625_Linux/lib/*:/usr/lib/jvm/java-8-oracle/lib/tools.jar:/home/ubuntu/cluster/gemfire-ubuntu-package/conf/:/home/ubuntu/cluster/gemfire-ubuntu-package/conf/*:/home/ubuntu/cluster/gemfire-ubuntu-package/lib/:/home/ubuntu/cluster/gemfire-ubuntu-package/lib/* --bind-address=ec2-52-5-23-199.compute-1.amazonaws.com --dir=/home/ubuntu/cluster/gemfire-ubuntu-package/members/ip-172-31-38-92-server --locators=ec2-52-4-67-120.compute-1.amazonaws.com[10334],ec2-52-0-225-28.compute-1.amazonaws.com[10334] --properties-file=/home/ubuntu/cluster/gemfire-ubuntu-package/conf/gemfire.properties --rebalance=true --J=-Xms31g --J=-Xmx31g --cache-xml-file=/home/ubuntu/cluster/gemfire-ubuntu-package/conf/cache.xml
+
+
+(1) Executing - start server --name=ip-172-31-38-94-server --use-cluster-configuration=false --classpath=:/home/ubuntu/cluster/gemfire-ubuntu-package/Pivotal_GemFire_810_b50625_Linux/lib/*:/usr/lib/jvm/java-8-oracle/lib/tools.jar:/home/ubuntu/cluster/gemfire-ubuntu-package/conf/:/home/ubuntu/cluster/gemfire-ubuntu-package/conf/*:/home/ubuntu/cluster/gemfire-ubuntu-package/lib/:/home/ubuntu/cluster/gemfire-ubuntu-package/lib/* --bind-address=ec2-52-0-225-28.compute-1.amazonaws.com --dir=/home/ubuntu/cluster/gemfire-ubuntu-package/members/ip-172-31-38-94-server --locators=ec2-52-4-67-120.compute-1.amazonaws.com[10334],ec2-52-0-225-28.compute-1.amazonaws.com[10334] --properties-file=/home/ubuntu/cluster/gemfire-ubuntu-package/conf/gemfire.properties --rebalance=true --J=-Xms31g --J=-Xmx31g --cache-xml-file=/home/ubuntu/cluster/gemfire-ubuntu-package/conf/cache.xml
+
+
+(1) Executing - start server --name=ip-172-31-38-95-server --use-cluster-configuration=false --classpath=:/home/ubuntu/cluster/gemfire-ubuntu-package/Pivotal_GemFire_810_b50625_Linux/lib/*:/usr/lib/jvm/java-8-oracle/lib/tools.jar:/home/ubuntu/cluster/gemfire-ubuntu-package/conf/:/home/ubuntu/cluster/gemfire-ubuntu-package/conf/*:/home/ubuntu/cluster/gemfire-ubuntu-package/lib/:/home/ubuntu/cluster/gemfire-ubuntu-package/lib/* --bind-address=ec2-52-0-234-178.compute-1.amazonaws.com --dir=/home/ubuntu/cluster/gemfire-ubuntu-package/members/ip-172-31-38-95-server --locators=ec2-52-4-67-120.compute-1.amazonaws.com[10334],ec2-52-0-225-28.compute-1.amazonaws.com[10334] --properties-file=/home/ubuntu/cluster/gemfire-ubuntu-package/conf/gemfire.properties --rebalance=true --J=-Xms31g --J=-Xmx31g --cache-xml-file=/home/ubuntu/cluster/gemfire-ubuntu-package/conf/cache.xml
+```
+Restart from persistence should be very quick.
+
 # Upload the files
 By running the scp script in the ServerConfigs project a prompt will appear to determine which files should be uploaded:
 
@@ -194,23 +241,18 @@ ubuntu@ip-172-31-39-161:~$
 # Stopping the Cluster
 By running the stop_cluster.sh command on a control machine, the following output can be seen:
 ```shell
-Starting Shut Down
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    39  100    39    0     0  68181      0 --:--:-- --:--:-- --:--:-- 39000
+piv-wifi-19-185:ServerConfigs lshannon$ ./stop_cluster.sh 
+Shutting Down The Cache Servers
 1. Executing - connect --locator=ec2-52-4-67-120.compute-1.amazonaws.com[10334]
 
 Connecting to Locator at [host=ec2-52-4-67-120.compute-1.amazonaws.com, port=10334] ..
 Connecting to Manager at [host=ip-172-31-38-93.ec2.internal, port=1099] ..
 Successfully connected to: [host=ip-172-31-38-93.ec2.internal, port=1099]
 
-2. Executing - shutdown
+2. Executing - shutdown --include-locators=true
 
 Shutdown is triggered
 
-Done!
-Done!
-Luke-Shannons-Macbook-Pro:ServerConfigs lshannon$ 
 Done!
 ```
 This results in all the Gemfire server processes shut down, but their persistent files not being deleted.
