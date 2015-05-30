@@ -246,7 +246,7 @@ The program can then be accessed with a URL similar to this:
 http://ec2-52-0-225-28.compute-1.amazonaws.com:8080/home
 Load Data first, then use the Get Data link, otherwise there will be no data to get.
 
-By viewing Pulse, the entries can be seen streaming into the cluster. The summary of data loading should look something like this. On the test environment 23 GB took about 3 minutes and 16 seconds. This was done with no tuning and not an ideal disk store for the persistent file updates.
+By viewing Pulse, the entries can be seen streaming into the cluster. The summary of data loading should look something like this. On the test environment 30 GB took about 90 seconds. This was done with no tuning and not an ideal disk store for the persistent file updates.
 
 The entry distribution across members in Pulse.
 ![cluster view](/images/data_distribution.png)
