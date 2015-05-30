@@ -168,7 +168,7 @@ End Time : 13:53:33
 Done!
 ```
 Once the cluster is started, pulse can be accessed on the primary locator. This will give an overview of the cluster and how data is distributed. Example:
-http://ec2-52-4-67-120.compute-1.amazonaws.com:7070/pulse/Login.html/pulse
+http://ec2-52-4-67-120.compute-1.amazonaws.com:7070/pulse
 
 ![cluster view](/images/cluster_view.png)
 
