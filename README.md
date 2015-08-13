@@ -1,13 +1,13 @@
 # Prerequisites
-To run this 4 machines are required. They need a dedicated network with at least 10Gb bandwidth in between members. For this POC AWS was using and r3.8xlarge instances.
+To run this multiple machines are required. They need a dedicated network with at least 10Gb bandwidth in between members. For this POC AWS was using and r3.8xlarge instances.
 
 ## Configure the environment
 In the ServerConfigs project locate the environment.sh file and add the IP addresses of the server. The first address will be the primary locator, the second address the secondary locator and the last two addresses data servers. Server processes will also be started on the locator machine. It is assumed that there will be a directory called /home/ubuntu/cluster. This is the home directory all scripts will work from.
 
 ## Running The Test
 Running the ./prep_for_data_load_test.sh will perform the following actions:
-- delete the data files (if 'yes' is entered for the Re-Generate Data Files? (yes) prompt)
-- create the new specified amount of files (if 'yes' is entered for the Re-Generate Data Files? (yes) prompt)
+- delete the data files (if 'yes' is entered for the 'Re-Generate Data Files?' prompt )
+- create the new specified amount of files (if 'yes' is entered for the 'Re-Generate Data Files?' prompt)
 - delete the Gemfire working directory (including the persistence files)
 - start the Gemfire cluster
 - start the demo application
