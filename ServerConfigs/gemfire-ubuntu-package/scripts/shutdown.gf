@@ -1,2 +1,2 @@
-connect --locator=ec2-52-4-67-120.compute-1.amazonaws.com[10334]
+connect --locator=172.31.38.93[10334]
 shutdown
